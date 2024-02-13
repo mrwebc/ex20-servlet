@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>ex20-servlet</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+
+  <!-- 
+    클라이언트로부터 어떠한 이름으로 요청이오면 어떤 자바파일을 실행할 지를
+    먼저 기술해야 한다.
+    서버가 실행되면 이 web.xml과 어노테이션(아직 안배움)을 읽어 요청 이름과
+    실행할 자바 파일을 서블릿 컨테이너에 등록한다
+
+  cf)
+    브라우저로부터 어떤 주소(경로)로 요청이 오면
+    어떤 서블릿을 실행할지 web.xml에 명시적으로 작성해야 한다.
+    
+    서버가 실행되면 web.xml 파일을 자동으로 읽어들여
+    실행할 서블릿을 톰캣 컨테이너에 등록한다.       
+    
+    서블릿 객체를 생성하거나 호출, 관리하는 주체는 톰캣 서블릿 컨테이너 이다. 
+   -->
+   
+   <!-- 1. 서블릿 등록 -->
+  <servlet>
+    <servlet-name>helloXml</servlet-name>
+    <servlet-class>servlet.HelloXml_10</servlet-class>
+  </servlet>
+  
+   <!-- 2. 사용자가 요청할 주소와 서블릿을 연결 -->
+  <servlet-mapping>
+    <servlet-name>helloXml</servlet-name>
+    <url-pattern>/helloXml</url-pattern>
+  </servlet-mapping>
+    
+
+  <servlet>
+    <servlet-name>xmlServlet</servlet-name>
+    <servlet-class>servlet.XmlServlet_30</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>xmlServlet</servlet-name>
+    <url-pattern>/xmlServlet</url-pattern>
+  </servlet-mapping>
+        
+</web-app>
